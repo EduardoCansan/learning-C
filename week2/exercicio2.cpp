@@ -5,39 +5,54 @@
 
 #include <stdio.h>
 #include <conio.h>
-#include <cstdio>
+#define TAMANHO 10
+
+float calcularPorcentagem(int votos, int total)
+{
+    return (votos * 100.0) / total;
+}
 
 int main()
 {
     
-    int option, validos = 0, branco= 0, nulo= 0;
-
-    for (int i = 0; i < 10; i++)
+    int option, valido = 0, branco = 0, nulo = 0;
+    
+    printf("Faca %d votos confome as opcoes abaixo\n", TAMANHO);
+    for (int i = 0; i < TAMANHO; i++)
     {
         
-        printf("Voce quer fazer um voto: \n1. Valido\n2. Branco\n3. Nulo\n");
-        scanf("%s", &option);
+        printf("\nVoce quer fazer um voto: \n1. Valido\n2. Branco\n3. Nulo\n");
+        printf("\n%dº Voto: ", i + 1);
+        scanf("%d", &option);
 
-        switch (option)
+        if (option == 1)
         {
-        case 1:
-            validos = validos + 1;
-            printf("\nVoto Valido");
-            break;
-        
-        case 2:
-            branco = branco + 1;
-            printf("\nVoto em Branco");
-            break;
+            printf("Você fez um voto Valido\n");
+            valido ++;
+        }
+        else if (option == 2)
+        {
+            printf("Você fez um voto em Branco\n");
+            branco ++;
+        }
+        else if (option == 3)
+        {
+            printf("Você votou nulo\n");
+            nulo ++;
+        }
+        else 
+        {
+            printf("Opcao Invalida! Escolha uma opção que exista\n");
+            i --;
+        }
 
-        case 3:
-            nulo = nulo + 1;
-            printf("\nVotou Nulo");
-            break;
-            
     }
-
-    }
+    
+    printf("\nObrigado por votar!");
+    printf("\nAqui estao as porcentagens dos votos:");
+    printf("\nVALIDOS = %.1f%%", calcularPorcentagem(valido, TAMANHO));
+    printf("\nBRANCOS = %.1f%%", calcularPorcentagem(branco, TAMANHO));
+    printf("\nNULOS = %.1f%%", calcularPorcentagem(nulo, TAMANHO));
     
     return 0;
 }
