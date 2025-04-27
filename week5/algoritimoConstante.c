@@ -50,12 +50,20 @@ void functionIf(int x) {
     // O if pode mudar a complexidade do algoritimo 
 }
 
+void functionMax(int a, int b) {
+    int x = (a > b? a : b);
+         // 1   0/1  0/1   
+
+    printf("%d", x);
+    }
+
 int main()
 {
     
     functionWhile(10);
     functionFor(10);
     functionIf(9);
-
+    functionMax(1, 2);
+    
     return 0;
 }
