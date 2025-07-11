@@ -1,0 +1,125 @@
+ENTENDENDO C:
+
+aula 54
+
+FILES:
+
+FILE *arq -> aponta para um arquivo
+fopne -> funcao para abrir arquivo
+w -> abrir um arquivo para escrita (se ja existe, é sobreescito por um vazio)
+r -> abrir arquivo para leitura (mas não pode escrever nele)
+a -> abrir arquivo para adicionar conteudo (se ja existe, é adicionado abaixo do conteudo)
+
+arq = fopen("arquivo.txt", "w"); -> escrive no arquivo
+
+EOF -> end of file
+feof -> file end of file
+
+fclose(arq); -> importante fazer isso para que não de problema
+
+
+----------------------------------------------------------------------------------------------
+
+
+Struct --> revisar
+Union --> é pra economizar, só pega o tamanho da maior posição
+Enum --> é tipo um dicionario, suas variaveis só podem acessar o que foi setado ali dentro
+
+
+----------------------------------------------------------------------------------------------
+
+
+<stdio.h> --> acesso a arquivos:
+    PRINCIPAIS:
+    - fclose() = fecha arquivos
+    - fflush() = limpa o buffer, corrige um erro (windows + eclipse + c)
+    - fopen() = abre um arquivo
+    - fscanf() = lê dados formatados de um arquivo
+    - printf() = imprime no terminak
+    - scanf() = escreve com teclado 
+    - gets() = lê um caractere de um arquivo
+    - fputs() = escreve um caractere/string em um arquivo
+    - getchar() = lê um caractere da entrada padrão
+    - fgets() = lê uma string da entrada padrão
+    - feof() = quando chega ao fim do arquivo
+    - FILE = tipo de dados que abre arquivo
+    - EOF = tipo até chegar ao fim do arquivo
+    - NULL = pode usar para anular algo
+
+<stdlib.h>
+    PRINCIPAIS:
+    - atof() = converte string para double
+    - atoi() = converte string para inteiro
+    - atol() = converte string para long
+    - rand() = gera número aleatório
+    - srand() = inicializa o gerador de números aleatórios (se nao usar esse ele gera sempre os mesmos numero aleatorios)
+    - malloc() = alocação de memória;
+    - calloc() = alocação de memória, zera o espaço;
+    - free() = libera memória, desalocação de memória
+    - realoc() = modifica o tamanho do espaço alocado em memória
+    - qsort() = ordena os elementos de um array
+    - abs() = valor absoluto
+    - div() = divisão inteira
+
+<math.h>
+    PRINCIPAIS:
+    - cos() = calcula o cosseno de um ângulo em radianos
+    - sin() = calcula o seno de um ângulo em radianos
+    - tan() = calcula a tangente de um ângulo em radianos
+    - cosh() = calcula o cosseno hiperbólico de um ângulo em radianos
+    - sinh() = calcula o seno hiperbólico de um ângulo em radianos
+    - tanh() = calcula a tangente hiperbólica de um ângulo em radianos
+    - exp() = calculo de exponencial
+    - log() = calcula o logaritimo natural
+    - log10() = calcula o logaritimo base 10
+    - pow() = calcula o exponencial
+    - sqrt() = calcula a raiz quadrada
+    - ceil() = arredonta um numero para cima
+    - floor() = arredonta um numero para baixo
+
+<ctype.h>
+    PRINCIPAIS: 
+    - isalnum() = verifica se o caractere é alfanúmerico
+    - isalpha() = verifica se o caractere é alfabético
+    - isdigit() = verifica se o caractere é um dígito decimal
+    - ispunct() = verifica se o caractere é uma pontuacao
+    - isspace() = verifica se é um espaço em branco
+    - isupper() = verifica se o caractere é maisculo
+    - islower() = verifica se o caractere é minusculo
+    - tolower() = converte o caractere para minusculo
+    - toupper() = converte o caractere para maisculo
+
+<string.h>
+    PRINCIPAIS:
+    - strcpy() = realiza a cópia de uma string
+    - strcat() = concatena strings
+    - strcmp() = compara duas strings
+    - strchr() = localiza a primeira ocorrencia de caractere em uma string
+    - strtok() = dividir uma string em substrings com base em um caractere
+    - strlen() = retorna o tamanho da string
+
+<time.h>
+    PRINCIPAIS:
+    - clock() = retorna o numero de pulsos de clock decorrido desde o inicio do programa
+    - time() = retorna o tempo atual do calendário
+    - localtime() = converte o valor time para uma hora localiza 
+    - asctime() = converte um valor de tempo para o formato: Dia da semana, Dia do mês Mês Ano Hora:Minuto:Segundo GMT
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+int *p, qtd;
+
+malloc:
+    p = (int*)malloc(qnt *sizeof (int)); 
+
+calloc:
+    p = (int*)malloc(qnt, sizeof (int));
+
+realloc:
+    p = (int*)malloc(p, qnt * sizeof (int));
+
+
+BOA PRÁTICA: 
+    free(p);
+    p = NULL;
