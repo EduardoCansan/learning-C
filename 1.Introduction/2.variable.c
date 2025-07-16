@@ -1,5 +1,5 @@
 /*
-    Create your firsts variables in a program than print it
+    Create your first variables in a program, then print them out.
 */
 
 #include <stdio.h>

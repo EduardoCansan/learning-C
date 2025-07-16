@@ -1,5 +1,5 @@
 /*
-    Show the inicial main struct in C, then print 'Hello World!'
+    Show the basic structure of a main function in C and print "Hello World!" to the screen.
 */
 
 #include <stdio.h>

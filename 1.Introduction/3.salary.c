@@ -1,7 +1,7 @@
 /*
-1 - Escreva um algoritmo para ler o salário mensal atual de um funcionário e o percentual de reajuste.
-Calcular e escrever o valor do novo salário bruto, calcule o INSS (11%), FGTS (6%) e deduza esses valores do valor bruto.
-Apresente o valor liquido.
+    Write an algorithm to read an employee's current monthly salary and the adjustment percentage.
+    Calculate and display the new gross salary, then calculate INSS (11%) and FGTS (6%) deductions and subtract them from the gross amount.
+    Finally, show the net salary.
 */
 
 #include <stdio.h>
