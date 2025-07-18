@@ -6,12 +6,14 @@
 
 int main()  {
     
-    int sideOne = 15;
-    int sideTwo = 15;
+    int sideOne = 10;
+    int sideTwo = 12;
     int sideThree = 15;
 
+    // check if the sides can actually form a triangle using the triangle inequality rule
     if ((sideOne + sideTwo > sideThree) && (sideOne + sideThree > sideTwo) && (sideTwo + sideThree > sideOne)) {
 
+        // check the type of triangle
         if (sideOne == sideTwo && sideTwo == sideThree) {
             printf("The triangle is Equilateral! [%d, %d, %d]", sideOne, sideTwo, sideThree);
         
