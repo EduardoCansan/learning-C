@@ -1,7 +1,7 @@
 /*
     Write an algorithm to read an employee's current monthly salary and the adjustment percentage.
-    Calculate and display the new gross salary, then calculate INSS (11%) and FGTS (6%) deductions and subtract them from the gross amount.
-    Finally, show the net salary.
+    Calculate and display the new gross salary, then calculate INSS (11%) and FGTS (6%) deductions 
+    and subtract them from the gross amount. Finally, show the net salary.
 */
 
 #include <stdio.h>
