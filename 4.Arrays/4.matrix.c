@@ -3,15 +3,15 @@
     Then, perform and display the sum, subtraction, multiplication, and division between the elements of 
     both arrays in reverse order like this:
     
-    - Vetor1[0] + Vetor2[9]
-    - Vetor1[0] - Vetor2[9]   
-    - Vetor1[0] * Vetor2[9]   
-    - Vetor1[0] / Vetor2[9]   
+    - Array1[0] + Array2[9]
+    - Array1[0] - Array2[9]   
+    - Array1[0] * Array2[9]   
+    - Array1[0] / Array2[9]   
 
-    - Vetor1[1] + Vetor2[8]
-    - Vetor1[1] - Vetor2[8]   
-    - Vetor1[1] * Vetor2[8]   
-    - Vetor1[1] / Vetor2[8]   
+    - Array1[1] + Array2[8]
+    - Array1[1] - Array2[8]   
+    - Array1[1] * Array2[8]   
+    - Array1[1] / Array2[8]   
     ....
 */
 
@@ -20,22 +20,22 @@
 
 int main() {
 
-    int vetorOne[SIZE];
-    int vetorTwo[SIZE];
+    int arrayOne[SIZE];
+    int arrayTwo[SIZE];
     int i;
 
-    printf("Choose %d numbers [VETOR 1]: \n", SIZE);
+    printf("Choose %d numbers [ARRAY 1]: \n", SIZE);
     for (i = 0; i < SIZE; i++)
     {
         printf("Number %d: ", i + 1);
-        scanf("%d", &vetorOne[i]);
+        scanf("%d", &arrayOne[i]);
     }
     
-    printf("\nChoose %d numbers [VETOR 2]: \n", SIZE);
+    printf("\nChoose %d numbers [ARRAY 2]: \n", SIZE);
     for (i = 0; i < SIZE; i++)
     {
         printf("Number %d: ", i + 1);
-        scanf("%d", &vetorTwo[i]);
+        scanf("%d", &arrayTwo[i]);
     }
     
     for (i = 0; i < SIZE; i++)
@@ -45,20 +45,20 @@ int main() {
         int j = SIZE - 1 - i;
         
         // Logic behind the mathematical operations
-        int sumVetores = vetorOne[i] + vetorTwo[j];
-        int subVetores = vetorOne[i] - vetorTwo[j];
-        int multVetores = vetorOne[i] * vetorTwo[j];
+        int sumArray = arrayOne[i] + arrayTwo[j];
+        int subArray = arrayOne[i] - arrayTwo[j];
+        int multArray = arrayOne[i] * arrayTwo[j];
 
-        printf("\nVetor[%d] e Vetor[%d]", vetorOne[i - 1], vetorTwo[j - 1]);
-        printf("\nSUM: %d", sumVetores);
-        printf("\nSUBTRACTION: %d", subVetores);
-        printf("\nMULTIPLICATION: %d", multVetores);
+        printf("\nArray[%d] e Array[%d]", arrayOne[i - 1], arrayTwo[j - 1]);
+        printf("\nSUM: %d", sumArray);
+        printf("\nSUBTRACTION: %d", subArray);
+        printf("\nMULTIPLICATION: %d", multArray);
         
         // Handling division by zero and division in general
-        if(vetorTwo[j] != 0) 
+        if(arrayTwo[j] != 0) 
         {
-            float divVetores = (float)vetorOne[i] / vetorTwo[j];
-            printf("\ndDIVISION: %.2f\n", divVetores);
+            float divArray = (float)arrayOne[i] / arrayTwo[j];
+            printf("\nDIVISION: %.2f\n", divArray);
         } else 
         {
             printf("\nDIVISION BY ZERO\n");

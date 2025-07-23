@@ -1,27 +1,27 @@
 /*
-    Create a loop to calculate the sum of the arrays (or vectors), then print all the results.
+    Create a loop to calculate the sum of the arrays, then print all the results.
 */
 
 #include <stdio.h>
-#define SIZE 10
+#define SIZE 5
 
 int main()
 {
     
-    int vetor[SIZE], i;
+    int array[SIZE], i;
 
     for (i = 0; i < SIZE; i++)
     {
-        printf("Enter a value to the Vetor[%d]: ", i);
-        scanf("%d", &vetor[i]);
+        printf("Enter a value to the array[%d]: ", i);
+        scanf("%d", &array[i]);
     }
 
     for (i = 0; i < SIZE; i++)
     {
-        if(vetor[i] < 0) {
-            vetor[i] = 0;
+        if(array[i] < 0) {
+            array[i] = 0;
         }
-        printf("\nVetor[%d] = %d", i, vetor[i]);
+        printf("\nArray[%d] = %d", i, array[i]);
     }
     
     return 0;

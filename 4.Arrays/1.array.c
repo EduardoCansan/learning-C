@@ -10,27 +10,27 @@
 int main()
 {
 
-    int vetor[6];
+    int array[6];
 
-    vetor[0] = 1;
-    vetor[1] = 0;
-    vetor[2] = 5;
-    vetor[3] = -2;
-    vetor[4] = -5;
-    vetor[5] = 7;
+    array[0] = 1;
+    array[1] = 0;
+    array[2] = 5;
+    array[3] = -2;
+    array[4] = -5;
+    array[5] = 7;
 
-    int sum = vetor[0] + vetor[1] + vetor[2];
+    int sum = array[0] + array[1] + array[2];
 
-    vetor[3] = 100;
+    array[3] = 100;
 
-    printf("Sum of the first three vetors: %d\n", sum);
-    printf("\nVetor[3] = %d\n", vetor[3]);
+    printf("Sum of the first three arrays: %d\n", sum);
+    printf("\nArray[3] = %d\n", array[3]);
 
     int i;
 
     for (i = 0; i < 6; i++)
     {
-        printf("\nVetor[%d] = %d", i, vetor[i]);
+        printf("\nArray[%d] = %d", i, array[i]);
     }
 
     return 0;
