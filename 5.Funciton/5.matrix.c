@@ -1,15 +1,15 @@
 /*
-    Write a program that fills two 3x3 matrices with decimal values.
-    Then calculate and display the sum, subtraction, multiplication, and division between the two matrices.
+    Using what you've learned about matrices, write a program that fills two 3x3 matrices with decimal values.
+    Then calculate and display the result of adding, subtracting, multiplying, and dividing the matrices.
 */
 
 #include <stdio.h>
 #define SIZE 3
 
-void sumMatrixes(int i, int j);
-void subtractMatrixes(int i, int j);
-void multiplyMatrixes(int i, int j);
-void divisorMatrixes(float i, float j);
+void sumMatrices(int i, int j);
+void subtractMatrices(int i, int j);
+void multiplyMatrices(int i, int j);
+void divisorMatrices(float i, float j);
 
 int main() {
 
@@ -37,16 +37,16 @@ int main() {
         for (j = 0; j < SIZE; j++) {
 
             printf("\nSum Matrix 1 [%d][%d] & Matrix 2 [%d][%d]: ", i + 1, j + 1, i + 1, j + 1);
-            sumMatrixes(matrixOne[i][j], matrixTwo[i][j]);
+            sumMatrices(matrixOne[i][j], matrixTwo[i][j]);
 
             printf("\nSubtract Matrix 1 [%d][%d] & Matrix 2 [%d][%d]: ", i + 1, j + 1, i + 1, j + 1);
-            subtractMatrixes(matrixOne[i][j], matrixTwo[i][j]);
+            subtractMatrices(matrixOne[i][j], matrixTwo[i][j]);
 
             printf("\nMultiply Matrix 1 [%d][%d] & Matrix 2 [%d][%d]: ", i + 1, j + 1, i + 1, j + 1);
-            multiplyMatrixes(matrixOne[i][j], matrixTwo[i][j]);
+            multiplyMatrices(matrixOne[i][j], matrixTwo[i][j]);
 
             printf("\nDivision Matrix 1 [%d][%d] & Matrix 2 [%d][%d]: ", i + 1, j + 1, i + 1, j + 1);
-            divisorMatrixes((float)matrixOne[i][j], (float)matrixTwo[i][j]);
+            divisorMatrices((float)matrixOne[i][j], (float)matrixTwo[i][j]);
 
             printf("\n");
         }
@@ -55,19 +55,19 @@ int main() {
     return 0;
 }
 
-void sumMatrixes(int i, int j) {
+void sumMatrices(int i, int j) {
     printf("%d", i + j);
 }
 
-void subtractMatrixes(int i, int j) {
+void subtractMatrices(int i, int j) {
     printf("%d", i - j);
 }
 
-void multiplyMatrixes(int i, int j) {
+void multiplyMatrices(int i, int j) {
     printf("%d", i * j);
 }
 
-void divisorMatrixes(float i, float j) {
+void divisorMatrices(float i, float j) {
     if (j == 0) {
         printf("Invalid division by 0!");
     } else {
