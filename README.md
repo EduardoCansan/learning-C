@@ -2,6 +2,8 @@
 
 Este documento apresenta alguns conceitos fundamentais da linguagem C, voltados especialmente para iniciantes que estão começando a entender o funcionamento da linguagem, ponteiros, strings, estruturas de dados e organização de código...
 
+You can follow my progress and try out some fun and challenging exercises along the way. Feel free to explore the code files and check the README.md in each folder to better understand the concepts and how C works.
+
 ---
 
 ## Como clonar o repositório e rodar um código C
