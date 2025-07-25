@@ -164,5 +164,19 @@ printf("Endereço de p: %p\n", &p);
 | Endereço de ponteiro	     | Onde a variável ponteiro (que guarda endereços) está armazenada            
 
 
+--- 
 
+### 7. MemoryAllocation
 
+Aloca um pedaço de memória sem limpar. Você precisa dizer o tamanho em bytes. 
+Depois, você usa esse espaço como quiser. Se não usar free, dá vazamento.
+MALLOC => aloca um bloco de memória não inicializado.
+
+Aloca memória e já preenche tudo com zero. Você informa quantos blocos e o tamanho de cada um (ex.: 5 números inteiros).
+Útil quando quer ter certeza que a memória começa limpa.
+CALLOC => útil quando você quer garantir que toda memória comece limpa.
+
+Aumenta ou diminui o tamanho de um pedaço de memória já alocado. Se aumentar, os novos espaços não vêm zerados. 
+Se não tiver espaço para crescer ali, ele move a memória para outro lugar (por isso o ponteiro pode mudar).
+
+REALLOC => O realloc pode mover a memória para um novo local se necessário. Sempre cheque se o ponteiro não virou NULL depois!
