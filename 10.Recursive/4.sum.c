@@ -1,3 +1,7 @@
+/*
+    Write a program in C to print the Sum of an outtputed number using recursion.
+*/
+
 #include <stdio.h>
 
 int recursiveSum(int num);

@@ -1,3 +1,7 @@
+/*
+    Write a program in C to print the Binary of an outputted Decimal using recursion.
+*/
+
 #include <stdio.h>
 
 int binary (int num);
