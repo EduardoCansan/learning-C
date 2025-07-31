@@ -123,3 +123,6 @@ realloc:
 BOA PRÁTICA: 
     free(p);
     p = NULL;
+
+
+PONTEIRO: https://www.treinaweb.com.br/blog/ponteiros-em-c-uma-abordagem-basica-e-inicial
