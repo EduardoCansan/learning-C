@@ -1,3 +1,8 @@
+/*
+    Write a program in C to create a Binary Tree, 
+    creating the functions: createTree, treeIsEmpty, displayTree, insertTreeData, nodeInTree, cleanTree
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

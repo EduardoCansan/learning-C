@@ -1,3 +1,8 @@
+/*
+    Write a program in C to create a Linked List, 
+    creating the functions: empty, start, realsease, display, insertAtStart, insertAtEnd, handleOption
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
