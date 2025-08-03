@@ -1,3 +1,14 @@
+/*
+    Build an application that, when launched, shows a menu with the following options:
+        Register a new product, List all products, Add products to the shopping cart, 
+        View shopping cart, Checkout, Exit the application
+
+    When adding a product to the cart, the program should check if the product already exists in the cart 
+    — if so, it should simply update the quantity.
+    At checkout, the application should calculate and display the total cost, 
+    based on the products and their respective quantities added to the cart.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
