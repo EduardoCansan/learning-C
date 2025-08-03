@@ -39,8 +39,8 @@ Product getProductByCode(int code);
 int *haveInCart(int code);
 void closeOrder();
 
-static int product_counter = 0;
-static int cart_counter = 0;
+static int product_count = 0;
+static int cart_count = 0;
 static Cart cart[STANDART_AMOUNT];
 static Product products[STANDART_AMOUNT];
 
@@ -104,25 +104,25 @@ void registerProduct() {
     printf("\nRegister Product\n================\n");
 
     printf("Enter product name: ");
-    fgets(products[product_counter].name, PRODUCT_NAME_SIZE, stdin);
-    products[product_counter].name[strcspn(products[product_counter].name, "\n")] = '\0'; // remove newline
+    fgets(products[product_count].name, PRODUCT_NAME_SIZE, stdin);
+    products[product_count].name[strcspn(products[product_count].name, "\n")] = '\0'; // remove newline
 
     printf("Enter product price: ");
-    scanf("%f", &products[product_counter].price);
+    scanf("%f", &products[product_count].price);
     getchar();
 
-    products[product_counter].code = product_counter + 1;
-    printf("Product '%s' registered successfully with code %d!\n", products[product_counter].name, products[product_counter].code);
+    products[product_count].code = product_count + 1;
+    printf("Product '%s' registered successfully with code %d!\n", products[product_count].name, products[product_count].code);
 
-    product_counter++;
+    product_count++;
     Sleep(2000);
     menu();
 }
 
 void listProducts() {
-    if (product_counter > 0) {
+    if (product_count > 0) {
         printf("\nListing Products\n================\n");
-        for (i = 0; i < product_counter; i++) {
+        for (i = 0; i < product_count; i++) {
             infoProduct(products[i]);
             printf("----------------\n");
             Sleep(1000);
@@ -135,7 +135,7 @@ void listProducts() {
 }
 
 void buyProduct() {
-    if (product_counter == 0) {
+    if (product_count == 0) {
         printf("No products available in the market yet!\n");
         Sleep(2000);
         menu();
@@ -144,7 +144,7 @@ void buyProduct() {
 
     printf("\nEnter the product code you want to add to the cart:\n");
     printf("========== PRODUCTS ===========\n");
-    for (i = 0; i < product_counter; i++) {
+    for (i = 0; i < product_count; i++) {
         infoProduct(products[i]);
         printf("----------------\n");
         Sleep(1000);
@@ -156,7 +156,7 @@ void buyProduct() {
     getchar();
 
     int found = 0;
-    for (i = 0; i < product_counter; i++) {
+    for (i = 0; i < product_count; i++) {
         if (products[i].code == code) {
             found = 1;
 
@@ -166,9 +166,9 @@ void buyProduct() {
                 printf("Increased quantity of product '%s' in cart.\n", cart[get_back[1]].product.name);
             } else {
                 Product p = getProductByCode(code);
-                cart[cart_counter].product = p;
-                cart[cart_counter].quantity = 1;
-                cart_counter++;
+                cart[cart_count].product = p;
+                cart[cart_count].quantity = 1;
+                cart_count++;
                 printf("Product '%s' added to the cart.\n", p.name);
             }
             Sleep(2000);
@@ -185,9 +185,9 @@ void buyProduct() {
 }
 
 void viewCart() {
-    if (cart_counter > 0) {
+    if (cart_count > 0) {
         printf("\nCart Products\n================\n");
-        for (i = 0; i < cart_counter; i++) {
+        for (i = 0; i < cart_count; i++) {
             infoProduct(cart[i].product);
             printf("Quantity: %d\n", cart[i].quantity);
             printf("----------------\n");
@@ -201,7 +201,7 @@ void viewCart() {
 }
 
 Product getProductByCode(int code) {
-    for (i = 0; i < product_counter; i++) {
+    for (i = 0; i < product_count; i++) {
         if (products[i].code == code) {
             return products[i];
         }
@@ -215,7 +215,7 @@ int *haveInCart(int code) {
     result[0] = 0;
     result[1] = 0;
 
-    for (i = 0; i < cart_counter; i++) {
+    for (i = 0; i < cart_count; i++) {
         if (cart[i].product.code == code) {
             result[0] = 1;
             result[1] = i;
@@ -226,7 +226,7 @@ int *haveInCart(int code) {
 }
 
 void closeOrder() {
-    if (cart_counter == 0) {
+    if (cart_count == 0) {
         printf("No products in the cart yet!\n");
         Sleep(2000);
         menu();
@@ -235,7 +235,7 @@ void closeOrder() {
 
     float total_price = 0.0;
     printf("\nOrder Summary\n================\n");
-    for (i = 0; i < cart_counter; i++) {
+    for (i = 0; i < cart_count; i++) {
         Product p = cart[i].product;
         int quantity = cart[i].quantity;
         total_price += p.price * quantity;
@@ -248,7 +248,7 @@ void closeOrder() {
     printf("Total: $%.2f\n", total_price);
     printf("Thank you for your purchase!\n");
 
-    cart_counter = 0;
+    cart_count = 0;
     Sleep(5000);
     menu();
 }
