@@ -13,13 +13,20 @@
 #include <windows.h>
 #include <time.h>
 
+#define ACCOUNT_DATA_SIZE 50
+#define CLIENT_NAME_SIZE 50
+#define CLIENT_EMAIL_SIZE 50
+#define CLIENT_CPF_SIZE 20
+#define CLIENT_BIRTH_SIZE 20
+#define CLIENT_DATE_SIZE 20
+
 typedef struct {
     int code;
-    char name[50];
-    char email[50];
-    char cpf[20];
-    char dateBirth[20];
-    char registerDate[20];
+    char name[CLIENT_NAME_SIZE];
+    char email[CLIENT_EMAIL_SIZE];
+    char cpf[CLIENT_CPF_SIZE];
+    char dateBirth[CLIENT_BIRTH_SIZE];
+    char registerDate[CLIENT_DATE_SIZE];
 
 } Client;
 
@@ -46,7 +53,7 @@ void withdrawal(Account account, float value);
 void deposit(Account account, float value);
 void transfer(Account origin_account, Account destiny_account, float value);
 
-static Account accounts[50];
+static Account accounts[ACCOUNT_DATA_SIZE];
 static int account_count = 0;
 static int client_count = 0;
 
@@ -117,11 +124,89 @@ void infoAccount(Account account) {
 }
 
 void createAccount() {
+    Client client;
 
+    // Registration date
+    char day[3];
+    char month[3];
+    char year[5];
+    char registration_date[20];
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+
+    // day
+    if(tm.tm_mday < 10) {
+        sprintf(day, "0%d", tm.tm_mday); // transform number in 1 to 01, till 10
+    
+    } else {
+        sprintf(day, "%d", tm.tm_mday);
+    }
+
+    // month
+    if((tm.tm_mon + 1) < 10) { // +1 cause goes 0 to 11 (not 1 to 12)
+        sprintf(month, "0%d", tm.tm_mon + 1);
+    
+    } else {
+        sprintf(month, "%d", tm.tm_mon + 1);
+    }
+
+    //year
+    sprintf(year, "%d", tm.tm_year + 1900); // default (current year - 1900)
+
+    strcpy(registration_date, "");
+    strcat(registration_date, day);
+    strcat(registration_date, "/");
+    strcat(registration_date, month);
+    strcat(registration_date, "/");
+    strcat(registration_date, year);
+    strcat(registration_date, "\0"); // finish
+    strcpy(client.registerDate, registration_date);
+
+    //Creating Client
+    printf("Enter Client Data: \n");
+
+    printf("\nClient Name: \n");
+    fgets(client.name, CLIENT_NAME_SIZE, stdin);
+
+    printf("Client Email: \n");
+    fgets(client.email, CLIENT_EMAIL_SIZE, stdin);
+
+    printf("Client CPF: \n");
+    fgets(client.cpf, CLIENT_CPF_SIZE, stdin);
+
+    printf("Client Date Birth: \n");
+    fgets(client.dateBirth, CLIENT_BIRTH_SIZE, stdin);
+
+    client_count++;
+
+    // Creating Account
+    accounts[account_count].number = account_count + 1;
+    accounts[account_count].client = client;
+    accounts[account_count].balance = 0.0;
+    accounts[account_count].limit = 0.0;
+    accounts[account_count].totalBalence = updateTotalBalance(accounts[account_count]);
+
+    printf("\nAccount Created Successfully!\n");
+    printf("\nAccount Data: \n");
+    infoAccount(accounts[account_count]);
+    account_count++;
+
+    Sleep(5000);
 }
 
 void listAccounts() {
+    if(account_count > 0) {
+        for(i = 0; i < account_count; i++) {
+            infoAccount(accounts[i]);
+            printf("\n");
+            Sleep(1000);
+        }
 
+    } else {
+        printf("***There are no registered accounts yet***\n");
+    }
+    Sleep(2000);
+    menu();
 }
 
 float updateTotalBalance(Account account) {
@@ -133,7 +218,7 @@ Account searchAccountByNumber(int number) {
     if(account_count > 0) {
         for (i = 0; i < account_count; i++) {
             if(accounts[i].number == number) {
-                c = accounts[i];
+                a = accounts[i];
             }
         }    
     }
@@ -215,13 +300,90 @@ void transfer(Account origin_account, Account destiny_account, float value) {
 }
 
 void makeWithdrawal() {
+    if(account_count > 0) {
+        int number;
+        printf("Enter the account number: \n");
+        scanf("%d", &number);
 
+        Account account = searchAccountByNumber(number);
+
+        if(account.number == number) {
+            float value;
+            printf("Inform the withdrawal amount: \n");
+            scanf("%d", &value);
+
+            withdrawal(account, value);
+        
+        } else {
+            printf("No account was found with the number %d\n", number);
+        }
+    
+    } else {
+        printf("***There are no accounts for withdrawals yet***\n");
+        Sleep(2000);
+        menu();
+    }
 }
 
 void makeDeposit() {
+    if(account_count > 0) {
+        int number;
+        printf("Enter the account number: \n");
+        scanf("%d", &number);
 
+        Account account = searchAccountByNumber(number);
+
+        if(account.number == number) {
+            float value;
+            printf("Inform the deposit amount: \n");
+            scanf("%d", &value);
+
+            deposit(account, value);
+        
+        } else {
+            printf("No account was found with the number %d\n", number);
+        }
+    
+    } else {
+        printf("***There are no accounts for deposit yet***\n");
+        Sleep(2000);
+        menu();
+    }
 }
 
 void makeTransfer() {
+    if(account_count > 0) {
+        int origin_num, destiny_num;
+        printf("Enter your account number: \n");
+        scanf("%d", origin_num);
 
+        Account origin_account = searchAccountByNumber(origin_num);
+
+        if(origin_account.number == origin_num) {
+            printf("Enter the destination account number: \n");
+            scanf("%d", &destiny_num);
+
+            Account destiny_account = searchAccountByNumber(destiny_num);
+
+            if(destiny_account.number == destiny_num) {
+                float value;
+                printf("Inform the amount for the transfer: \n");
+                scanf("%f", &value);
+                
+                transfer(origin_account, destiny_account, value);
+
+            } else {
+                printf("The destination account with number %d was not found\n", destiny_num);
+            }
+
+        } else {
+            printf("The account with number %d was not found\n", origin_num);
+        }
+
+
+    } else {
+        printf("***There are no accounts for transfer yet***\n");
+    }
+    Sleep(2000);
+    menu();
 }
