@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int i;
+
 // Structure for a node in the adjacency list
 typedef struct Node {
     int vertex;
@@ -24,7 +26,7 @@ Graph* createGraph(int V) {
 
     // Allocate memory for adjacency lists
     graph->adj = (Node**)malloc(V * sizeof(Node*));
-    for (int i = 0; i < V; i++)
+    for (i = 0; i < V; i++)
         graph->adj[i] = NULL;
 
     return graph;
@@ -62,7 +64,7 @@ int isNeighbor(Graph* graph, int v1, int v2) {
 
 // Function to free memory of the graph
 void freeGraph(Graph* graph) {
-    for (int i = 0; i < graph->V; i++) {
+    for (i = 0; i < graph->V; i++) {
         Node* current = graph->adj[i];
         while (current != NULL) {
             Node* temp = current;
