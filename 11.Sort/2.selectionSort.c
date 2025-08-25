@@ -1,5 +1,5 @@
 /*
-    Write a program in C to sort an array using Select Sort.
+    Write a program in C to sort an array using Selection Sort.
 */
 
 #include <stdio.h>

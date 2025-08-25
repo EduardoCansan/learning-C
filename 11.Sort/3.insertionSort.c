@@ -1,5 +1,5 @@
 /*
-    Write a program in C to sort an array using Insert Sort.
+    Write a program in C to sort an array using Insertion Sort.
 */
 
 #include <stdio.h>
