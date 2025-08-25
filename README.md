@@ -57,7 +57,7 @@ gcc 1.helloWorld.c -o 1.helloWorld.exe
 
 - [FILE 📑](9.File/README.md)
 
-- [RECURSIVE 👥](10.Recursive/README.md)
+- [RECURSION 👥](10.Recursion/README.md)
 
 - [SORT 🧩](11.Sort/README.md)
 
